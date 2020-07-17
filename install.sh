@@ -1,0 +1,1 @@
+cp ./Scripts /usr/local/bin
