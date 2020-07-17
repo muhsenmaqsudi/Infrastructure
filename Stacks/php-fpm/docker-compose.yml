@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+    app:
+        build: ../../PHP/7.4/fpm
+        image: muhsenmaqsudi/php:7.4-fpm
+        user: "1000:1000"
+        expose:
+            - 9000
+        volumes:
+            - ~/Code:/var/www/html
+        restart: unless-stopped
+        networks:
+            - web
+            - app
+networks:
+    app:
+    web:
+        external: true
