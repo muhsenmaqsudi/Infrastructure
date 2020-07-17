@@ -1,0 +1,5 @@
+#!/bin/sh
+docker run --rm -ti --user $(id -u):$(id -g) \
+    --volume $(pwd):/usr/src/app \
+    -w /usr/src/app \
+    node npm $@
