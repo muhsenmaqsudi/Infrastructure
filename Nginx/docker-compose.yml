@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+    nginx-lb:
+        container_name: nginx
+        image: nginx      
+        ports:
+            - 80:80
+            - 443:443
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
+            # - ./certificates:/etc/nginx/certificates:ro
+            - ./conf:/etc/nginx/conf.d:ro
+            - ~/Code:/var/www/html
+        restart: unless-stopped
+        networks:
+            web:
+networks:
+    web:
+        external: true
